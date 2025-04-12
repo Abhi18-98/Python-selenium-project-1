@@ -1,0 +1,15 @@
+from selenium import webdriver
+import time 
+driver=webdriver.Chrome()
+driver.get("https://www.google.com")
+print("opened", driver.title)
+time.sleep(10)
+driver.execute_script("window.open('https://www.cloudgensoft.com');")
+print("opened cloudgensoft webpage in new tab")
+time.sleep(15)
+driver.close()
+print("closed current tab (cloudgensoft)")
+driver.switch_to.window(driver.window_handles[0])
+print("Back to Tab:", driver.title)
+time.sleep(10)
+driver.quit()
